@@ -12,25 +12,36 @@
 
 
 var nextPermutation = function(nums) {
-    let sortedDescArr = nums.slice().sort((a, b) => {return b - a});
-    let index = 0;
-    let swap;
-    
-    for(let i = 0; i < nums.length; i++) {
-        if(nums[i] === sortedDescArr[index]) {
-            index++;
-            swap = nums[i];
-        }
+let i = nums.length - 2;
+while (i >= 0 && nums[i + 1] <= nums[i]) {
+    i--;
+}
+if (i >= 0) {
+    let j = nums.length - 1;
+    while (j >= 0 && nums[j] <= nums[i]) {
+        j--;
     }
+    swap(nums, i, j);
+}
+    reverse(nums, i + 1);
+
+    return nums;
+};
+
+var reverse = function(nums, start) {
+let i = start;
+let j = nums.length - 1;
+while(i < j) {
+    swap(nums, i, j);
+    i++;
+    j--;
+}
+}
+
+var swap = function(nums, i, j) {
+let temp = nums[i];
+nums[i] = nums[j];
+nums[j] = temp;
+}
     
-    for(let i = 0; i < sortedDescArr.length; i++) {
-        if(sortedDescArr[i] === swap) {
-            sortedDescArr.splice(i, 1);
-        }
-    }
-    
-    //swap indices
-    
-    };
-    
-    nextPermutation([1,2,3]);
+nextPermutation([1,2,3]);
