@@ -11,6 +11,7 @@ var backtrack = function(list, tempList, nums) {
        for(let i = 0; i < nums.length; i++) {
        tempList.push(nums[i]);
        backtrack(list, tempList, nums);
+       //when you pop, you get rid of what you already pass through
        tempList.pop();
    }       
    }
