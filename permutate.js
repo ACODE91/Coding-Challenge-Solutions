@@ -1,19 +1,20 @@
-var permute = function(nums) {
+let permute = function(nums) {
     let list = [];
     backtrack(list, [], nums);
     return list;
 }
 
-var backtrack = function(list, tempList, nums) {
-   if(tempList.length === nums.length) {
-       list.push(tempList.slice());
-   } else {
-       for(let i = 0; i < nums.length; i++) {
-       tempList.push(nums[i]);
-       backtrack(list, tempList, nums);
-       //when you pop, you get rid of what you already pass through
-       tempList.pop();
-   }       
-   }
 
+let backtrack = function(list, tempList, nums) {
+    if(tempList.length == nums.length) {
+        let copy = tempList.slice();
+        list.push(copy);
+    } else {
+        for(let i = 0; i < nums.length; i++) {
+            if(tempList.includes(nums[i])) { continue }
+            tempList.push(nums[i]);
+            backtrack(list, tempList, nums);
+            tempList.pop();
+        }
+    }
 }
