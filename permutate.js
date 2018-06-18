@@ -4,7 +4,6 @@ let permute = function(nums) {
     return list;
 }
 
-
 let backtrack = function(list, tempList, nums) {
     if(tempList.length == nums.length) {
         let copy = tempList.slice();
