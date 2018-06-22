@@ -9,8 +9,13 @@ BST.prototype.addNode = function(nodeValue) {
         this.right = new BST(nodeValue);
     } else if(this.value > nodeValue && !this.left) {
         this.left = new BST(nodeValue);    
-    }    
+    } else if(this.value > nodeValue && this.left) {
+        this.left.addNode(nodeValue);
+    } else if(this.value < nodeValue && this.right) {
+        this.right.addNode(nodeValue);
+    }
 }
+
 
 var numTrees = function(n) {
     let uniqueBSTs = [];
@@ -28,17 +33,17 @@ var numTrees = function(n) {
             makeTree(uniqueBSTs, range[i], subsetList[j]);
         }
     }
+    return uniqueBSTs;
 };
 
 let makeTree = function(BSTList, start, subset) {
     let startingNode = new BST(start);
+ 
     for(let i = 0; i < subset.length; i++) {
         startingNode.addNode(subset[i]);
     }
 
     BSTList.push(startingNode);
-    console.log(BSTList)
-    return BSTList;
 }
 
 let permute = function(nums) {
