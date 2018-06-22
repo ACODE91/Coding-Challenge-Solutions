@@ -37,9 +37,13 @@
 let setZeroes = function(matrix) {
     let fr = false
     let fc = false;
+    //scan entire matrix for 0's.
+    //if first element of column 1 row 1 is 0, then fr/fc is true.
     for(let i = 0; i < matrix.length; i++) {
         for(let j = 0; j < matrix[0].length; j++) {
             if(matrix[i][j] == 0) {
+                //if any element in matrix is 0, first row's column becomes 0
+                //first element in row becomes 0
                 if(i == 0) fr = true;
                 if(j == 0) fc = true;
                 matrix[0][j] = 0;
