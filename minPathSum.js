@@ -14,18 +14,20 @@
 // Explanation: Because the path 1→3→1→1→1 minimizes the sum.
 
 let minPathSum = function (grid) {
-        let m = grid.length;
-        let n = grid[0].length;
-        for(let i=1;i<n;i++){
+        let row = grid.length;
+        let col = grid[0].length;
+
+        for(let i=1;i<row;i++){
             grid[0][i] += grid[0][i-1];
         }
-        for(let i=1;i<m;i++){
+
+        for(let i=1;i<col;i++){
             grid[i][0] += grid[i-1][0];
         }
-        for(let i=1;i<m;i++){
-            for(let j=1;j<n;j++){
+        for(let i=1;i<row;i++){
+            for(let j=1;j<col;j++){
                 grid[i][j] += Math.min(grid[i-1][j], grid[i][j-1]);
             }
         }
-        return grid[m-1][n-1];
+        return grid[row-1][col-1];
     }
