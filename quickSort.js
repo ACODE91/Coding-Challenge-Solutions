@@ -1,33 +1,35 @@
 let quickSort = function(low, high, array) {
+    let length = array.length,
+    pivot,
+    partitionIndex;
+
     if(low < high) {
-      let j = partition(low, high, array);
+      pivot = high;
+      partitionIndex = partition(low, high, array, pivot);
+      quickSort(low, partitionIndex - 1, array);
+      quickSort(partitionIndex + 1, high, array);
     }
-    quickSort(low, j, array);
-    quickSort(j + 1, high, array);
+
+    return array;
 }
 
-let partition = function(low, high, array) {
-    let pivot = array[low];
-    let i = low;
-    let j = high;
-    
-    while(array[i] <= pivot) {
-        i++;
-    }
-    
-    while(array[j] > pivot) {
-        j--;
-    }
+let partition = function(low, high, array, pivot) {
+let pivotValue = array[pivot], 
+partitionIndex = low;
 
-    if(i < j) {
-        swap(array[i], array[j]);
+for(let i = low; i < high; i++) {
+    if (array[i] < pivotValue){
+        swap(array, i, partitionIndex);
+        partitionIndex++;
     }
-
-    return j;
 }
 
-let swap = function(a, b) {
-    let tmp = a;
-    a = b;
-    b = tmp;
+swap(array, high, partitionIndex);
+return partitionIndex;
+}
+
+let swap = function(arr, i, j) {
+    let tmp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = tmp;
 }
