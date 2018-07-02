@@ -1,6 +1,5 @@
 //DP solution with O(n^2) time complexity;
 var lengthOfLIS = function(nums) {
-    let longest = 0;
     let i = 1;
     let j = 0;
     let array = new Array(nums.length);
