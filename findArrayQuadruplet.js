@@ -9,7 +9,7 @@ function findArrayQuadruplet(arr, s) {
 
     for(let i = 0; n - 4; i++) {
         for(let j = i + 1; n - 3; j++) {
-     let  r = s - (arr[i] + arr[j]);
+     let r = s - (arr[i] + arr[j]);
      let low = j + 1;
      let high = n - 1;
               while( low < high) {
