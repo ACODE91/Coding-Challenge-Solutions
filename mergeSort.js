@@ -7,7 +7,6 @@ function mergeSort (arr) {
     const middle = Math.floor(arr.length / 2) // get the middle item of the array rounded down
     const left = arr.slice(0, middle) // items on the left side
     const right = arr.slice(middle) // items on the right side
-  
     return merge(
       mergeSort(left),
       mergeSort(right)
@@ -21,7 +20,8 @@ function merge (left, right) {
   
     while (indexLeft < left.length && indexRight < right.length) {
       if (left[indexLeft] < right[indexRight]) {
-        result.push(left[indexLeft])
+        result.push(left[indexLeft]
+        )
         indexLeft++
       } else {
         result.push(right[indexRight])
@@ -31,3 +31,5 @@ function merge (left, right) {
   
     return result.concat(left.slice(indexLeft)).concat(right.slice(indexRight))
   }
+
+  mergeSort([3,1,11,7,4])
