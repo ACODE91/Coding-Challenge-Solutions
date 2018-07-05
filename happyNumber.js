@@ -16,7 +16,8 @@ let isHappy = function(n) {
     slow = digitSquareSum(slow);
     fast = digitSquareSum(fast);
     fast = digitSquareSum(fast);
-    if (slow == 1) return 1;
-    else return 0;    
 };
+
+if (slow == 1) return 1;
+else return 0;    
 }
