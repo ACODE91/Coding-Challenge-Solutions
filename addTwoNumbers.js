@@ -13,7 +13,9 @@ var addTwoNumbers = function(l1, l2) {
         } else {
         carry = 0;
         }
-        
+        //this line will keep building new nodes after dummyHead
+        //new nodes will appear after the new curr after to continue making a linked list.
+        //for the purpose of having left over carry and to NOT overwrite dummyHead's next you want to keep building on curr.
         curr.next = new ListNode(sum % 10);
         curr = curr.next;
         if (p != null) p = p.next;
