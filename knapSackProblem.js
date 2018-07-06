@@ -4,16 +4,29 @@
             let i, w;
             let K = new Array(n+1);
             K.fill(new Array(W + 1));
-            
+            //first for loop represents the number of items
              for (i = 0; i <= n; i++)
              {
+            //second for loop represents the capacity
                  for (w = 0; w <= W; w++)
                  {
+                     //fills table with 0s to initialize
                      if (i==0 || w==0)
                           K[i][w] = 0;
+                    //w represents which capacity limit you currently are on, on the table
+                    //this line triggers if the weight is less than the capacity
                      else if (wt[i-1] <= w)
+                     //chooses best value between choosing the current item + best value of 
+                     //remaining capacity VERSUS if you don't choose the current item
+                     //and get previous best value
+
+                     //but how does this know the weight capacity if you add the two?
+
                            K[i][w] = Math.max(val[i-1] + K[i-1][w-wt[i-1]],  K[i-1][w]);
                      else
+                     //in the case where weight of the item is more than capacity
+                     //assign row/column block to be previous value since that is the optimal
+                     //value you can receive from the limitations.
                            K[i][w] = K[i-1][w];
                  }
               }
