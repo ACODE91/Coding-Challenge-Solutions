@@ -9,9 +9,10 @@ let groupAnagrams = function(strs) {
         if (!ans[key]) ans[key] = [];
         ans[key].push(strs[i]);
     }
-    
+
     for(let key in ans) {
         result.push(ans[key]);
     }
+    
     return result;
 }
