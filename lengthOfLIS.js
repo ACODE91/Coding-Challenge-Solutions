@@ -1,19 +1,27 @@
-//Alterante DP solution with O(n^2) time complexity
+//Alternate DP solution with O(n^2) time complexity
 let lengthOfLIS = function(nums) {
     if (nums.length == 0) {
         return 0;
     }
-    let dp = new int[nums.length];
+    //initialize a DP array to keep track
+    let dp = new Array(nums.length);
+    //the first element would be 1 because 1 elements length is still 1.
     dp[0] = 1;
     let maxans = 1;
+    //maxans is for the same reason above.
     for (let i = 1; i < dp.length; i++) {
+        //max val keeps track of the largest number as you iterate through with the j loop
         let maxval = 0;
         for (let j = 0; j < i; j++) {
             if (nums[i] > nums[j]) {
+                //we need to keep track of max subsequence by choosing either the previously 
+                //recorded max length or the current max length to see which is bigger.
                 maxval = Math.max(maxval, dp[j]);
             }
         }
         dp[i] = maxval + 1;
+        //overwrites if it finds anything larger than the previous max answer
+        //so you don't have to loop through it to overwrite 
         maxans = Math.max(maxans, dp[i]);
     }
     return maxans;
