@@ -1,3 +1,24 @@
+//Alterante DP solution with O(n^2) time complexity
+let lengthOfLIS = function(nums) {
+    if (nums.length == 0) {
+        return 0;
+    }
+    let dp = new int[nums.length];
+    dp[0] = 1;
+    let maxans = 1;
+    for (let i = 1; i < dp.length; i++) {
+        let maxval = 0;
+        for (let j = 0; j < i; j++) {
+            if (nums[i] > nums[j]) {
+                maxval = Math.max(maxval, dp[j]);
+            }
+        }
+        dp[i] = maxval + 1;
+        maxans = Math.max(maxans, dp[i]);
+    }
+    return maxans;
+}
+
 //DP solution with O(n^2) time complexity;
 var lengthOfLIS = function(nums) {
     let i = 1;
