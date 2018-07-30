@@ -1,4 +1,11 @@
-//my approach
+//recursive approach
+var maxDepth = function(root, n) {
+    if(n === undefined) n = 0;
+    if(root == null) return n;
+    return Math.max(maxDepth(root.left, n + 1), maxDepth(root.right, n + 1));
+  };
+
+//my BFS approach
 let Queue = function() {
     this.storage = [];
 }
