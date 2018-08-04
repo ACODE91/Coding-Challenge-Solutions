@@ -6,9 +6,9 @@ let NumArray = function(nums) {
     }
 }
 
-NumArray.prototype.sumRange(i, j) {
-    return sum[j + 1] - sum[i];
-}
+NumArray.prototype.sumRange = function(i, j) {
+    return sum[j + 1] - sum[i]
+};
 
 //my brute force solution
 var NumArray = function(nums) {
@@ -24,10 +24,8 @@ var NumArray = function(nums) {
     };
     
     NumArray.prototype.sumRange = function(i, j) {
-        sum = this.dp[j];
-        for(let low = 0; low < i; low++) {
-            sum -= this.nums[low];
-        }
-        return sum;
+        if (i == 0) return this.dp[j];
+        
+        return this.dp[j] - this.dp[i - 1]; 
     };
     
