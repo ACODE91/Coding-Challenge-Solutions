@@ -1,16 +1,4 @@
 //optimal solution
-let NumArray = function(nums) {
-    sum = new Array(nums.length + 1);
-    for (let i = 0; i < nums.length; i++) {
-        sum[i + 1] = sum[i] + nums[i];
-    }
-}
-
-NumArray.prototype.sumRange = function(i, j) {
-    return sum[j + 1] - sum[i]
-};
-
-//my brute force solution
 var NumArray = function(nums) {
     this.dp = new Array(nums.length);
     this.nums = nums;    
