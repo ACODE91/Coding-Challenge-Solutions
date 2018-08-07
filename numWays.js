@@ -9,6 +9,7 @@ let numWays = function(n, k) {
     let sameColorCounts = k;
     for(let i=2; i<n; i++) {
         let temp = diffColorCounts;
+        //as each posts increases 
         diffColorCounts = (diffColorCounts + sameColorCounts) * (k-1);
         sameColorCounts = temp;
     }
