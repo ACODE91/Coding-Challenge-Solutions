@@ -1,4 +1,3 @@
-
 class Heap {
     /**
     * @constructor
