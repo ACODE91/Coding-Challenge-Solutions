@@ -1,12 +1,12 @@
 let generateParenthesis = function(n) {
-    let ans = new ArrayList();
+    let ans = [];
     backtrack(ans, "", 0, 0, n);
     return ans;
 }
 
 let backtrack = function(ans, cur, open, close, max) {
     if (str.length == max * 2) {
-        ans.add(cur);
+        ans.push(cur);
         return;
     }
 
