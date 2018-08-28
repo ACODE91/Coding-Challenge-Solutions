@@ -3,9 +3,9 @@ let generateParenthesis = function(n) {
     backtrack(ans, "", 0, 0, n);
     return ans;
 }
-
+  
 let backtrack = function(ans, cur, open, close, max) {
-    if (str.length == max * 2) {
+    if (cur.length == max * 2) {
         ans.push(cur);
         return;
     }
