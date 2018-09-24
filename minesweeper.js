@@ -18,7 +18,7 @@ let updateBoard = function(board, click) {
         }
         
         if (count > 0) { // If it is not a 'B', stop further DFS.
-            board[row][col] = (char)(count + '0');
+            board[row][col] = count.toString();
         }
         else { // Continue DFS to adjacent cells.
             board[row][col] = 'B';
@@ -26,7 +26,7 @@ let updateBoard = function(board, click) {
                 for (let j = -1; j < 2; j++) {
                     if (i == 0 && j == 0) continue;
                     let r = row + i, c = col + j;
-                    if (r < 0 || r >= m || c < 0 || c < 0 || c >= n) continue;
+                    if (r < 0 || r >= m || c < 0 || c >= n) continue;
                     if (board[r][c] == 'E') updateBoard(board, [r, c]);
                 }
             }
