@@ -1,3 +1,4 @@
+//naive solution in runtime of 1112 ms
 let replaceWords = function(dict, sentence) {
     let result = "";
     sentence = sentence.split(' ');
