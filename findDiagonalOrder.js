@@ -1,43 +1,17 @@
 var findDiagonalOrder = function(matrix) {
-    let res = [], ceiling = false, col = 0, row = 0;
-        
-    while(col !== matrix[0].length - 1 && row !== matrix.length - 1) {
-        while(!ceiling) {
-            res.push(matrix[row][col]);
-            if(matrix[row - 1] && matrix[row + 1][col - 1]) {
-                row = row - 1;
-            } else {
-                ceiling = true;
-            }
-            
-            if(matrix[row][col + 1]) {
-                col = col + 1;
-            } else {
-                row = row - 1;
-            }
-        }
-        
-        while(ceiling) {
-            res.push(matrix[row][col]);
-            if(matrix[row + 1] && matrix[row + 1][col - 1]) {
-                row = row + 1;
-            } else {
-                ceiling = false;
-            }
-    
-            if(matrix[row][col - 1]) {
-               col = col - 1;   
-            } else {
-               row = row + 1;
-            }
-        }
-    }
-    
-    return res;
+    if(matrix.length == 0) return [];
+    r = 0, c = 0, m = matrix.length, n = matrix[0].length, arr[] = new Array(m * n);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = matrix[r][c];
+        if ((r + c) % 2 == 0) { // moving up
+            if      (c == n - 1) { r++; }
+            else if (r == 0)     { c++; }
+            else            { r--; c++; }
+        } else {                // moving down
+            if      (r == m - 1) { c++; }
+            else if (c == 0)     { r++; }
+            else            { r++; c--; }
+        }   
+    }   
+    return arr;
     };
-    
-    findDiagonalOrder([
-     [ 1, 2, 3 ],
-     [ 4, 5, 6 ],
-     [ 7, 8, 9 ]
-    ])
