@@ -1,5 +1,5 @@
 function isMatch(text, pattern) {
-    return isMatchHelper(text, pattern, 0, 0)
+	return isMatchHelper(text, pattern, 0, 0);
 }
 
 //     Input
@@ -14,32 +14,32 @@ function isMatch(text, pattern) {
 //    from index 2 (“abb”) matches the pattern from index 1 (“ab*”)
 
 function isMatchHelper(text, pattern, textIndex, patIndex) {
-     //base cases - one of the indexes reached the end of text or pattern
-    if (textIndex >= text.length) { 
-        if (patIndex >= pattern.length) {
-            return true        
-        } else {
-            if (patIndex+1 < pattern.length && pattern[patIndex+1] == '*') {
-                return isMatchHelper(text, pattern, textIndex, patIndex + 2)
-            } else {
-                return false
-            }
-        } 
-    } else if (patIndex >= pattern.length && textIndex < text.length) {
-        return false
-     //string matching for character followed by '*'
-    } else if (patIndex+1 < pattern.length && pattern[patIndex+1] == '*') {
-        if (pattern[patIndex] == '.' || text[textIndex] == pattern[patIndex]) {
-            return (isMatchHelper(text, pattern, textIndex, patIndex + 2 ||
-                    isMatchHelper(text, pattern, textIndex + 1, patIndex))
-        } else {
-            return isMatchHelper(text, pattern, textIndex, patIndex + 2)
-        }
-     //string matching for '.' or ordinary char.
-    } else if (pattern[patIndex] == '.' ||
+	//base cases - one of the indexes reached the end of text or pattern
+	if (textIndex >= text.length) { 
+		if (patIndex >= pattern.length) {
+			return true;        
+		} else {
+			if (patIndex+1 < pattern.length && pattern[patIndex+1] == '*') {
+				return isMatchHelper(text, pattern, textIndex, patIndex + 2);
+			} else {
+				return false;
+			}
+		} 
+	} else if (patIndex >= pattern.length && textIndex < text.length) {
+		return false;
+		//string matching for character followed by '*'
+	} else if (patIndex+1 < pattern.length && pattern[patIndex+1] == '*') {
+		if (pattern[patIndex] == '.' || text[textIndex] == pattern[patIndex]) {
+			return  isMatchHelper(text, pattern, textIndex, patIndex + 2 ||
+                    isMatchHelper(text, pattern, textIndex + 1, patIndex));
+		} else {
+			return isMatchHelper(text, pattern, textIndex, patIndex + 2);
+		}
+		//string matching for '.' or ordinary char.
+	} else if (pattern[patIndex] == '.' ||
             pattern[patIndex] == text[textIndex]) {
-        return  isMatchHelper(text, pattern, textIndex + 1, patIndex + 1)
-    } else {
-        return false
-    }
+		return  isMatchHelper(text, pattern, textIndex + 1, patIndex + 1);
+	} else {
+		return false;
+	}
 }
