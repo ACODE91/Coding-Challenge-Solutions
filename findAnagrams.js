@@ -9,24 +9,30 @@ var findAnagrams = function(s, p) {
 	var left = 0;
 	var right = 0;
 	while(right < s.length){
-		//
-		if(map[s.charAt(right)]){
-		    // NOTICE: we only need to update left for non-continuous duplicated character,
-			// because the following "if" will automatically handle the situation: "baa" "aa"
-			if(slideWindow[s.charAt(right)] && map[s.charAt(right)] === 1){
-				left = Math.max(slideWindow[s.charAt(right)], left);
-			}
+		//move right by 1 every iteration
+        if(map[s.charAt(right)]){ //if current letter in our map object exists using "right" index
+        //checks for unnecessary duplicates by checking if current letter is already traversed and it's value is 1 in map
+            if(slideWindow[s.charAt(right)] && map[s.charAt(right)] === 1){
+                //if it is traversed previously and map shows only 1 occurence of letter
+                //reassign left index to take either itself or slideWindow's value so 
+                //it skips index to for next iteration since we've found a duplicate value which
+                //proves that current letters cannot be an anagram
+                left = Math.max(slideWindow[s.charAt(right)], left);
+            }
+            //this check will prove that we have found our anagram since this is length of p
 			if(right - left + 1 === p.length){
 				result.push(left);
 				left++;
-			}
+            }
+        //if the letter doesn't exists in our map object
 		}else{
+            //then move left as the next index after right and empty slideWindow since 
+            //it can't possibly be the anagram anyway.
 			left = right + 1;
 			slideWindow = {};
 		}
-		// the core of sliding window: need to save next index to current key,
-		// so we can leverage it whenever we meet this key again in the future.
-		slideWindow[s.charAt(right)] = right + 1;
+            //slideWindow will then take current letter and point it's value to the next index after it
+        slideWindow[s.charAt(right)] = right + 1;
 		right++;
 	}
 	return result;
