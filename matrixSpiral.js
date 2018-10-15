@@ -6,7 +6,7 @@ let matrixSpiral = function(n) {
 		res[i] = [];
 	}
 
-	while(count < (n * n)) {
+	while(startCol <= endCol && starRow <= endRow) {
 		//left to right
 		for(let i = startCol; i <= endCol; i++) {
 			res[startRow][i] = count;
@@ -20,7 +20,7 @@ let matrixSpiral = function(n) {
 			count++;
 		}
 
-		endCol++;
+		endCol--;
 		//right to left
 		for(let i = endCol; i >= startCol; i--) {
 			res[endRow][i] = count;
