@@ -1,3 +1,4 @@
+//describe how you could use a single array to implement 3 stacks.
 let FixedMultiStack = function(stackSize) {
 	this.stackCapacity = stackSize;
 	this.values = new Array(stackSize * 3);
