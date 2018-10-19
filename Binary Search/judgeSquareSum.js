@@ -1,4 +1,6 @@
 let judgeSquareSum = function(c) {
+	//loop through starting with a = 0 until a^2 equals to or passes c because 
+	//that would be go overboard!
 	for (let a = 0; a * a <= c; a++) {
 		let b = c - (a * a);
 		if (binary_search(0, b, b))
@@ -6,6 +8,7 @@ let judgeSquareSum = function(c) {
 	}
 	return false;
 };
+
 let binary_search = function(s, e, n) {
 	if (s > e)
 		return false;

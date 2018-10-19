@@ -1,4 +1,5 @@
 var removeElements = function(head, val) {
+    //this base case is perfect for head being a null value or having no tails 
     if (head == null) return null;
     //recursively opens up all call stacks until the last node
     //if current node matches the val then the previous node will point to the next node

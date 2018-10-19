@@ -42,9 +42,7 @@ FixedMultiStack.prototype.isEmpty = function(stackNum) {
 };
 
 FixedMultiStack.prototype.indexOfTop = function(stackNum) {
-//given stack size of 7 indices will be
-//first stack: 0 ~ 6
-//second stack: 7 ~ 14
-//third staack: 15 ~ 20
-    let offSet = 
+	let offSet = stackNum * this.stackCapacity;
+	let size = this.sizes[stackNum];
+	return offSet + size - 1;
 };
