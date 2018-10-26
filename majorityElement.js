@@ -1,3 +1,4 @@
+//hash map solution
 var majorityElement = function(nums) {
 	let target = Math.floor(nums.length/2), map = {};
 	if(nums.length == 1) {
@@ -13,6 +14,12 @@ var majorityElement = function(nums) {
 		} else {
 			map[nums[i]] = 1;
 		} 
-	}
-        
+	}      
 };
+
+//sorting solution 
+var majorityElement = function(nums) {
+	nums.sort((a,b) => {return a - b;});
+	return nums[Math.floor(nums.length/2)];
+};
+

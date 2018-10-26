@@ -30,7 +30,6 @@ var calPoints = function(ops) {
 		} else if(ops[i] == 'D') {
 			if(!stack.isEmpty()) {
 				val = stack.peek() * 2;
-
 			}
 		} else if(ops[i] == 'C') {
 			if(!stack.isEmpty()) {

@@ -15,7 +15,6 @@ var moveZeroes = function(nums) {
 			} else {
 				continue;
 			}
-
 		}
 	}
 };
