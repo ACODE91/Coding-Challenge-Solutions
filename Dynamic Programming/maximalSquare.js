@@ -17,7 +17,9 @@ var maximalSquare = function(matrix) {
 			if(parseInt(matrix[i][j])===0){
 				biggerMatrix[i+1][j+1] = 0;
 			} else {
-				biggerMatrix[i+1][j+1] = parseInt(matrix[i][j])+Math.min(biggerMatrix[i][j], biggerMatrix[i+1][j], biggerMatrix[i][j+1]);
+				biggerMatrix[i+1][j+1] = parseInt(matrix[i][j])+
+                Math.min(biggerMatrix[i][j], biggerMatrix[i+1][j], 
+                	biggerMatrix[i][j+1]);
 				max = Math.max(max, biggerMatrix[i+1][j+1]);
 			}
 		}

@@ -12,9 +12,7 @@ var moveZeroes = function(nums) {
 				nums[queue[0]] = tmp;
 				queue.shift();
 				queue.push(i);
-			} else {
-				continue;
-			}
+			} 
 		}
 	}
 };
