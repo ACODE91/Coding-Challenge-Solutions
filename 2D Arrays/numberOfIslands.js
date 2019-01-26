@@ -1,10 +1,10 @@
 // depthFirstSearch function is used for stubbing out 1's into 0's.
 
 const depthFirstSearch = function (grid, row, column) {
-  let nr = grid.length;
+  const nr = grid.length;
 
-        
-let nc = grid[0].length;
+
+  const nc = grid[0].length;
 
   grid[row][column] = 0;
   // checks up
