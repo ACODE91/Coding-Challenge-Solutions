@@ -1,6 +1,6 @@
 let validPalindrome = s => {
   let left = 0,
-    j = s.length - 1;
+    right = s.length - 1;
   while (left < right && s.charAt(left) == s.charAt(right)) {
     left++;
     right--;
