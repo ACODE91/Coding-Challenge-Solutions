@@ -1,9 +1,9 @@
 var maxProfit = function(prices) {
-  let maxCur = 0,
-    maxSoFar = 0;
+  let profit = 0,
+    maxProfit = 0;
   for (let i = 1; i < prices.length; i++) {
-    maxCur = Math.max(0, (maxCur += prices[i] - prices[i - 1]));
-    maxSoFar = Math.max(maxCur, maxSoFar);
+    profit = Math.max(0, (profit += prices[i] - prices[i - 1]));
+    maxProfit = Math.max(profit, maxProfit);
   }
-  return maxSoFar;
+  return maxProfit;
 };
